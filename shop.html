@@ -254,7 +254,7 @@
     <!-- PAGE TITLE -->
     <section class="page-title">
       <h1>Our Shop</h1>
-      <p>Affordable style for everyone</p>
+      <p class="tagline" id="tagline"><!-- Affordable style for everyone --></p>
     </section>
 
     <!-- FILTER BUTTONS -->
@@ -607,6 +607,19 @@
           }
         });
       }
+
+      const text = "Affordable. Stylish. For Everyone.";
+      let index = 0;
+
+      function typeEffect() {
+        if (index < text.length) {
+          document.getElementById("tagline").innerHTML += text.charAt(index);
+          index++;
+          setTimeout(typeEffect, 50);
+        }
+      }
+
+      window.onload = typeEffect;
     </script>
   </body>
 </html>

@@ -133,13 +133,13 @@
 }
 
 /* Responsive */
-@media(max-width: 768px){
+@media(max-width: 468px){
     .hero h1 {
-        font-size: 1.7rem;
+        font-size: 1.3rem;
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 0.5rem;
     }
 }
 
@@ -155,6 +155,8 @@
         font-size: 40px;
         margin-bottom: 10px;
       }
+
+      
 
       .hero button {
         padding: 12px 25px;
@@ -247,13 +249,19 @@
         .products {
           grid-template-columns: repeat(2, 1fr);
         }
+         
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 500px) {
         .categories,
         .products {
           grid-template-columns: 1,  0fr;
         }
+        .products .card img {
+        width: 80%;
+        height: 50%;
+        object-fit: cover;
+      }
       }
     </style>
   </head>
@@ -279,7 +287,7 @@
     <section class="hero">
     <div class="hero-content">
         <h1>Night Fashion</h1>
-        <p>Minimal. Affordable. For Everyone.</p>
+        <p class="tagline" id="tagline"><!-- Minimal. Affordable. Stylish. For Everyone. --></p>
         <a href="shop.html" class="hero-btn">Shop Now</a>
     </div>
 </section>
@@ -645,5 +653,19 @@
             alert(name + " added to cart!");
         });
     });
+    
+const text = "Minimal. Affordable. Stylish. For Everyone.";
+let index = 0;
+
+function typeEffect(){
+  if(index < text.length){
+    document.getElementById("tagline").innerHTML += text.charAt(index);
+    index++;
+    setTimeout(typeEffect, 50);
+  }
+}
+
+window.onload = typeEffect;
+
 </script>
 </html>
