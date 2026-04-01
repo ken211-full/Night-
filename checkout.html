@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checkout - Night Fashion</title>
+    <link rel="stylesheet" href="check.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="logo">Night Fashion</div>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+
+          <li><a href="product.html">description</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- CHECKOUT -->
+    <section class="checkout-container">
+      <!-- ORDER SUMMARY -->
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div id="checkout-items"></div>
+
+        <!-- Discount Code -->
+        <div class="discount">
+          <input type="text" id="promo-code" placeholder="Promo Code" />
+          <button id="apply-code">Apply</button>
+        </div>
+
+        <h3>Total: $<span id="checkout-total">0</span></h3>
+      </div>
+
+      <!-- CUSTOMER + PAYMENT FORM -->
+      <div class="checkout-form">
+        <h2>Customer & Payment Info</h2>
+        <form id="order-form">
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email Address" required />
+          <input type="text" placeholder="Phone Number" required />
+          <input type="text" placeholder="Shipping Address" required />
+
+          <h3>Payment Info</h3>
+          <input
+            type="text"
+            placeholder="Card Number"
+            maxlength="16"
+            required
+          />
+          <div class="card-row">
+            <input type="text" placeholder="MM/YY" maxlength="5" required />
+            <input type="text" placeholder="CVV" maxlength="3" required />
+          </div>
+
+          <button type="submit">Place Order</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+      <div class="footer-content">
+        <p>© 2026 Night Fashion | All Rights Reserved</p>
+
+        <div class="social-links">
+          <a href="https://youtube.com" target="_blank">YouTube</a> |
+          <a href="https://instagram.com" target="_blank">Instagram</a> |
+          <a href="https://wa.me/211XXXXXXXXX" target="_blank">WhatsApp</a> |
+          <a href="https://tiktok.com" target="_blank">TikTok</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Load cart
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const checkoutItems = document.getElementById("checkout-items");
+      const checkoutTotal = document.getElementById("checkout-total");
+      let total = 0;
+
+      // Display items with remove button
+      cart.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.classList.add("checkout-item");
+        div.style.animationDelay = index * 0.1 + "s";
+
+        div.innerHTML = `
+        <p>${item.name}</p>
+        <p>$${item.price}</p>
+        <button class="remove-item" data-index="${index}">✕</button>
+    `;
+
+        checkoutItems.appendChild(div);
+        total += parseFloat(item.price);
+      });
+
+      // Remove item functionality
+      document.querySelectorAll(".remove-item").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const idx = this.dataset.index;
+          cart.splice(idx, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          location.reload();
+        });
+      });
+
+      // Total
+      checkoutTotal.textContent = total.toFixed(2);
+
+      // Promo code
+      document.getElementById("apply-code").addEventListener("click", () => {
+        const code = document
+          .getElementById("promo-code")
+          .value.trim()
+          .toUpperCase();
+        if (code === "NIGHT10") {
+          total = total * 0.9;
+          checkoutTotal.textContent = total.toFixed(2);
+          alert("Promo applied! 10% discount 🔥");
+        } else {
+          alert("Invalid promo code");
+        }
+      });
+
+      // Place order
+      document
+        .getElementById("order-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (cart.length === 0) {
+            alert("Cart is empty!");
+            return;
+          }
+
+          alert("Order placed successfully! 🎉");
+          localStorage.removeItem("cart");
+          window.location.href = "thankyou.html";
+        });
+    </script>
+  </body>
+</html>

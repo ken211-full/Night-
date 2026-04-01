@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Night Fashion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: white;
+        color: #333;
+        overflow: auto;
+      }
+
+      header {
+        background-color: #0d47a1;
+        color: white;
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        
+
+      }
+
+      header h1 {
+        margin: 0;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        display: block;
+        color: whitesmoke;
+        text-decoration: underline;
+        transform: translateY(-2px); 
+      }
+      
+
+
+      /* HERO SECTION */
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+    /* background: url('/IMG-20260219-WA0015.jpg') no-repeat center center/cover; */
+    /* background: url('/IMG-20260225-WA0014.jpg') no-repeat center center/cover; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: white;
+}
+
+/* Dark overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 40, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+.hero-btn {
+    padding: 14px 35px;
+    background: white;
+    color: #0b1c39;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: #0b1c39;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media(max-width: 768px){
+    .hero h1 {
+        font-size: 1.7rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+      /* .hero {
+        background: url("https://images.unsplash.com/photo-1521335629791-ce4aec67dd53")
+          center/cover no-repeat;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+      } */
+
+      .hero h2 {
+        font-size: 40px;
+        margin-bottom: 10px;
+      }
+
+      .hero button {
+        padding: 12px 25px;
+        background-color: #0d47a1;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .section {
+        padding: 60px 40px;
+        text-align: center;
+      }
+
+      .categories,
+      .products {
+        display: grid;
+        gap: 20px;
+      }
+
+      .categories {
+        margin-top: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .products {
+        margin-top: 2rem;
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .card {
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 5px;
+      }
+
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card button {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #0d47a1;
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
+      .card:hover{
+        transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .promo {
+        background-color: #e3f2fd;
+        display: flex;
+        justify-content: space-around;
+        padding: 40px;
+        text-align: center;
+      }
+
+      footer {
+        background-color: #0d47a1;
+        color: white;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .social-links a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+      }
+
+      .social-links a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 992px) {
+        .products {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .categories,
+        .products {
+          grid-template-columns: 1,  0fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <h1>Night Fashion</h1>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+         <!--  <li><a href="shop.html">Men</a></li>
+          <li><a href="shop.html">Women</a></li> -->
+          
+          <li>
+            <a href="checkout.html">Cart ( <span id="cart-count">0</span>)</a>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+    <div class="hero-content">
+        <h1>Night Fashion</h1>
+        <p>Minimal. Affordable. For Everyone.</p>
+        <a href="shop.html" class="hero-btn">Shop Now</a>
+    </div>
+</section>
+
+    <section class="section">
+      <h2>Shop By Category</h2>
+      <div class="categories">
+        <div class="card"><a href="shop.html">Men Shoes</a></div>
+        <div class="card"><a href="shop.html">Women Shoes</a> </div>
+        <div class="card"> <a href="shop.html">Men Clothes</a></div>
+        <div class="card"><a href="shop.html">Women Clothes</a></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Featured Products</h2>
+      <div class="products">
+        <div class="card">
+          <img
+            src="/img shop/IMG-20260219-WA0010.jpg"
+          />
+          <h3>Sneakers</h3>
+          <p>$6</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="6">
+    Add to Cart
+</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="/img shop/IMG-20260225-WA0007.jpg"
+          />
+          <h3>Heels</h3>
+          <p>$4</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="3">
+    Add to Cart
+</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="/men clothes/WhatsApp Image 2026-03-08 at 1.05.26 PM.jpeg"
+          />
+          <h3>T-Shirt</h3>
+          <p>$15</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="30">
+    Add to Cart
+</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="/men clothes/WhatsApp Image 2026-03-08 at 1.05.22 PM (1).jpeg"
+          />
+          <h3>Suit</h3>
+          <p>$40</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="30">
+    Add to Cart
+</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="/img shop/IMG-20260225-WA0005.jpg"
+          />
+          <h3>Casual Shoes</h3>
+          <p>$28</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="30">
+    Add to Cart
+</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="/men clothes/WhatsApp Image 2026-03-08 at 1.05.32 PM.jpeg"
+          />
+          <h3>Dress</h3>
+          <p>$35</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="30">
+    Add to Cart
+</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="/img shop/IMG-20260225-WA0007.jpg"
+          />
+          <h3>Jeans</h3>
+          <p>$22</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="30">
+    Add to Cart
+</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="/img shop/IMG-20260223-WA0002.jpg"
+          />
+          <h3>Sport Shoes</h3>
+          <p>$32</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="30">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="/shoes/WhatsApp Image 2026-03-08 at 1.03.13 PM (1).jpeg"
+          />
+          <h3> Shoes</h3>
+          <p>$12</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="12">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="/img shop/IMG-20260223-WA0003.jpg"
+          />
+          <h3>Sport Shoes</h3>
+          <p>$2</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="2">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="img shop/IMG-20260219-WA0017.jpg"
+          />
+          <h3>Sport Shoes</h3>
+          <p>$2</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="2">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="img shop/IMG-20260220-WA0007.jpg"
+          />
+          <h3>Sport Shoes</h3>
+          <p>$2.5</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="2.5">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="img shop/IMG-20260219-WA0012.jpg"
+          />
+          <h3>Sport Shoes</h3>
+          <p>$3</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="3">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="img shop/IMG-20260222-WA0002.jpg"
+          />
+          <h3>Sport Shoes</h3>
+          <p>$1.5</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="1.5">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="img shop/IMG-20260219-WA0016.jpg"
+          />
+          <h3>Sport Shoes</h3>
+          <p>$1.5</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="1.5">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="img shop/IMG-20260223-WA0000.jpg"
+          />
+          <h3>Sport Shoes</h3>
+          <p>$1.5</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="1.5">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="img shop/IMG-20260223-WA0001.jpg"
+          />
+          <h3>Sport Shoes</h3>
+          <p>$1.5</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="1.5">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="img shop/IMG-20260223-WA0002.jpg"
+          />
+          <h3>Sport Shoes</h3>
+          <p>$1.5</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="1.5">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="img shop/IMG-20260220-WA0008.jpg"
+          />
+          <h3>Sport Shoes</h3>
+          <p>$1.5</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="1.5">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="img shop/IMG-20260220-WA0009.jpg"
+          />
+          <h3>Heels</h3>
+          <p>$1.5</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="1.5">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="img shop/IMG-20260220-WA0010.jpg"
+          />
+          <h3>Sport Shoes</h3>
+          <p>$1.5</p>
+          <button class="add-to-cart" 
+        data-name="Sneakers" 
+        data-price="1.5">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="men clothes/WhatsApp Image 2026-03-08 at 1.05.22 PM (1).jpeg"
+          />
+          <h3>Men clothe</h3>
+          <p>$4</p>
+          <button class="add-to-cart" 
+        data-name="Clothes" 
+        data-price="4">
+    Add to Cart
+</button>
+        </div>
+        <div class="card">
+          <img
+            src="men clothes/WhatsApp Image 2026-03-08 at 1.05.22 PM.jpeg"
+          />
+          <h3>Men Clothe</h3>
+          <p>$6</p>
+          <button class="add-to-cart" 
+        data-name="Clothe" 
+        data-price="6">
+    Add to Cart
+</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="promo">
+      <div>
+        <h3>🚚 Fast Delivery</h3>
+        <p>Quick and reliable shipping</p>
+      </div>
+      <div>
+        <h3>💰 Affordable Prices</h3>
+        <p>Fashion for every budget</p>
+      </div>
+      <div>
+        <h3>✔ Quality Guaranteed</h3>
+        <p>Best quality products</p>
+      </div>
+    </section>
+
+    
+      <footer>
+        <div class="footer-content">
+          <p>© 2026 Night Fashion | All Rights Reserved</p>
+
+          <div class="social-links">
+            <a href="https://youtube.com" target="_blank">YouTube</a> |
+            <a href="https://instagram.com" target="_blank">Instagram</a> |
+            <a href="https://wa.me/211XXXXXXXXX" target="_blank">WhatsApp</a> |
+            <a href="https://tiktok.com" target="_blank">TikTok</a>
+          </div>
+        </div>
+      </footer>
+      <script>
+    // Get cart from localStorage or create empty array
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Update cart counter
+    function updateCartCount() {
+        document.getElementById("cart-count").textContent = cart.length;
+    }
+
+    updateCartCount();
+
+    // Add to cart buttons
+    const buttons = document.querySelectorAll(".add-to-cart");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function() {
+
+            const name = this.dataset.name;
+            const price = this.dataset.price;
+
+            const product = {
+                name: name,
+                price: price
+            };
+
+            cart.push(product);
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            updateCartCount();
+
+            alert(name + " added to cart!");
+        });
+    });
+</script>
+</html>

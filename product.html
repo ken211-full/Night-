@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product | Night Fashion</title>
+    <link rel="stylesheet" href="product.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Night Fashion</div>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="product-container">
+      <!-- IMAGE SECTION -->
+      <div class="product-image">
+        <div class="main-image">
+          <img
+            id="mainProductImage"
+            src="IMG-20260219-WA0015.jpg"
+            alt="Product"
+          />
+        </div>
+
+        <div class="thumbnail-gallery">
+          <img src="IMG-20260219-WA0015.jpg" alt="" class="thumb active" />
+          <img src="img shop/IMG-20260219-WA0003.jpg" alt="" class="thumb" />
+          <img src="img shop/IMG-20260219-WA0004.jpg" alt="" class="thumb" />
+          <img src="img shop/IMG-20260219-WA0006.jpg" alt="" class="thumb" />
+          <img src="img shop/IMG-20260219-WA0007.jpg" alt="" class="thumb" />
+          <img src="img shop/IMG-20260219-WA0008.jpg" alt="" class="thumb" />
+          <img src="img shop/IMG-20260219-WA0009.jpg" alt="" class="thumb" />
+          <img src="img shop/IMG-20260219-WA0010.jpg" alt="" class="thumb" />
+          <img src="img shop/IMG-20260219-WA0012.jpg" alt="" class="thumb" />
+          <img src="img shop/IMG-20260219-WA0017.jpg" alt="" class="thumb" />
+          <img src="https://via.placeholder.com/500" class="thumb" />
+          <img
+            src="https://via.placeholder.com/500/000000/ffffff"
+            class="thumb"
+          />
+          <img
+            src="https://via.placeholder.com/500/cccccc/000000"
+            class="thumb"
+          />
+        </div>
+      </div>
+
+      <!-- DETAILS SECTION -->
+      <div class="product-details">
+        <h1>Classic White Sneakers</h1>
+        <h2>$45.00</h2>
+        <div class="rating">⭐⭐⭐⭐☆ (120 reviews)</div>
+
+        <!-- SIZE -->
+        <div class="size-selection">
+          <h4>Select Size</h4>
+          <button>38</button>
+          <button>39</button>
+          <button>40</button>
+          <button>41</button>
+          <button>42</button>
+        </div>
+
+        <!-- COLOR -->
+        <div class="color-selection">
+          <h4>Select Color</h4>
+          <button class="color white"></button>
+          <button class="color black"></button>
+          <button class="color gray"></button>
+        </div>
+
+        <!-- QUANTITY -->
+        <div class="quantity">
+          <h4>Quantity</h4>
+          <div class="quantity-control">
+            <button id="decrease">-</button>
+            <input type="number" id="quantityInput" value="1" min="1" />
+            <button id="increase">+</button>
+          </div>
+        </div>
+
+        <button class="add-to-cart">Add to Cart</button>
+
+        <div class="description">
+          <h3>Product Description</h3>
+          <p>
+            Premium minimal sneakers designed for everyday comfort. Perfect for
+            casual and street fashion.
+          </p>
+        </div>
+
+        <div class="delivery">
+          <p>🚚 Free delivery within 3–5 days</p>
+          <p>🔄 7-day return policy</p>
+        </div>
+
+        <!-- REVIEWS -->
+        <div class="reviews">
+          <h3>Customer Reviews</h3>
+          <div class="review-card">
+            ⭐⭐⭐⭐⭐
+            <p>Very comfortable and stylish!</p>
+          </div>
+          <div class="review-card">
+            ⭐⭐⭐⭐☆
+            <p>Good quality for the price.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <p>© 2026 Night Fashion | All Rights Reserved</p>
+        <div class="social-links">
+          <a href="https://youtube.com" target="_blank">YouTube</a> |
+          <a href="https://instagram.com" target="_blank">Instagram</a> |
+          <a href="https://wa.me/211XXXXXXXXX" target="_blank">WhatsApp</a> |
+          <a href="https://tiktok.com" target="_blank">TikTok</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // IMAGE SWITCH
+      const mainImage = document.getElementById("mainProductImage");
+      const thumbnails = document.querySelectorAll(".thumb");
+
+      thumbnails.forEach((thumb) => {
+        thumb.addEventListener("click", () => {
+          thumbnails.forEach((t) => t.classList.remove("active"));
+          thumb.classList.add("active");
+          mainImage.src = thumb.src;
+        });
+      });
+
+      // ACTIVE SIZE
+      document.querySelectorAll(".size-selection button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".size-selection button")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+
+      // ACTIVE COLOR
+      document.querySelectorAll(".color").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".color")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+
+      // QUANTITY
+      const qtyInput = document.getElementById("quantityInput");
+
+      document.getElementById("increase").onclick = () => {
+        qtyInput.value = parseInt(qtyInput.value) + 1;
+      };
+
+      document.getElementById("decrease").onclick = () => {
+        if (qtyInput.value > 1) qtyInput.value = parseInt(qtyInput.value) - 1;
+      };
+
+      // ADD TO CART
+      document.querySelector(".add-to-cart").addEventListener("click", () => {
+        const selectedSize = document.querySelector(".size-selection .active");
+        const selectedColor = document.querySelector(".color.active");
+
+        if (!selectedSize || !selectedColor) {
+          alert("Please select size and color.");
+          return;
+        }
+
+        const product = {
+          name: "Classic White Sneakers",
+          price: "45.00",
+          size: selectedSize.textContent,
+          color: selectedColor.classList[1],
+          quantity: qtyInput.value,
+        };
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert("Product added to cart! 🔥");
+      });
+    </script>
+  </body>
+</html>
