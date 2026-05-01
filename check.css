@@ -18,7 +18,7 @@ body {
    HEADER
 =========================== */
 header {
-    background: white;
+    background: #0d47a1;
     padding: 20px 60px;
     display: flex;
     justify-content: space-between;
@@ -31,8 +31,8 @@ header {
 
 header .logo {
     font-size: 24px;
-    font-weight: bold;
-    color: #1f3c88;
+    font-weight: bold; 
+    color: #ffffff;
 }
 
 header nav ul {
@@ -43,18 +43,19 @@ header nav ul {
 
 header nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: white;
     font-weight: 500;
     transition: 0.3s;
 }
 
 header nav ul li a:hover {
-    color: #1f3c88;
+    color: #ffffff;
 }
 nav ul li a:hover{
     display: block;
-     transform: translateY(-2px); 
-        text-decoration: underline;
+    color: whitesmoke;
+    transform: translateY(-2px); 
+    text-decoration: underline;
 }
 
 /* ===========================
@@ -339,4 +340,45 @@ body {
         gap: 10px;
         align-items: center;
     }
+}
+
+
+/* small phone size */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 60%;
+    background: #0d47a1;
+    display: none;
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    text-align: right;
+    padding: 20px;
+  }
 }

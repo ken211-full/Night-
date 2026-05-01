@@ -2,19 +2,461 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shorhcut icon " href="/IMG-20260225-WA0014.jpg" />
+
     <title>Checkout - Night Fashion</title>
-    <link rel="stylesheet" href="check.css" />
+    <!-- <link rel="stylesheet" href="check.css" /> -->
+    <style>
+      /* ===========================
+   GLOBAL RESET & BODY
+=========================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* ===========================
+   HEADER
+=========================== */
+      header {
+        background: #0d47a1;
+        padding: 20px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        /* position: relative; */
+
+        z-index: 1000;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      header .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffffff;
+      }
+
+      header nav ul {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+      nav {
+        z-index: 999;
+      }
+
+      header nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      header nav ul li a:hover {
+        color: #ffffff;
+      }
+      nav ul li a:hover {
+        display: block;
+        color: whitesmoke;
+        transform: translateY(-2px);
+        text-decoration: underline;
+      }
+
+      /* ===========================
+   FOOTER
+=========================== */
+      footer {
+        text-align: center;
+        padding: 30px 20px;
+        background: #1f3c88;
+        color: white;
+        font-size: 14px;
+      }
+
+      /* ===========================
+   BUTTONS GLOBAL
+=========================== */
+      button {
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+      }
+
+      /* ===========================
+   CHECKOUT PAGE
+=========================== */
+      .checkout-container {
+        max-width: 1200px;
+        margin: 60px auto 100px auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        padding: 50px;
+      }
+
+      .order-summary,
+      .checkout-form {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+      }
+
+      .order-summary h2,
+      .checkout-form h2 {
+        margin-bottom: 25px;
+        font-size: 24px;
+        color: #1f3c88;
+      }
+
+      .checkout-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+      }
+
+      .order-summary h3 {
+        margin-top: 25px;
+        font-size: 20px;
+        color: #1f3c88;
+        text-align: right;
+      }
+
+      /* Discount code section */
+      .discount {
+        display: flex;
+        margin: 20px 0;
+        gap: 10px;
+      }
+
+      .discount input {
+        flex: 1;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+      }
+
+      .discount button {
+        padding: 12px 20px;
+        background: #1f3c88;
+        color: white;
+        border: none;
+        border-radius: 25px;
+      }
+
+      /* Customer form */
+      .checkout-form form {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .checkout-form input {
+        padding: 14px 16px;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        font-size: 15px;
+      }
+
+      .checkout-form input:focus {
+        border-color: #1f3c88;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(31, 60, 136, 0.1);
+      }
+
+      .checkout-form button {
+        margin-top: 10px;
+        padding: 14px;
+        background: linear-gradient(135deg, #1f3c88, #162d66);
+        color: white;
+        border: none;
+        border-radius: 40px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .card-row {
+        display: flex;
+        gap: 15px;
+      }
+
+      .card-row input {
+        flex: 1;
+      }
+
+      /* Remove item button */
+      .remove-item {
+        background: transparent;
+        border: none;
+        color: #ff4c4c;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .remove-item:hover {
+        transform: scale(1.2);
+      }
+
+      /* footer */
+      footer {
+        background-color: #0d47a1;
+        color: white;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .social-links a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+      }
+
+      .social-links a:hover {
+        text-decoration: underline;
+      }
+
+      /* ===========================
+   CHECKOUT ANIMATIONS
+=========================== */
+
+      /* Page Fade In */
+      body {
+        animation: fadePage 0.6s ease-in-out;
+      }
+
+      @keyframes fadePage {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Slide In Left */
+      .order-summary {
+        animation: slideLeft 0.8s ease forwards;
+        opacity: 0;
+      }
+
+      @keyframes slideLeft {
+        from {
+          transform: translateX(-40px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      /* Slide In Right */
+      .checkout-form {
+        animation: slideRight 0.8s ease forwards;
+        opacity: 0;
+        animation-delay: 0.2s;
+      }
+
+      @keyframes slideRight {
+        from {
+          transform: translateX(40px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      /* Items Fade Up */
+      .checkout-item {
+        animation: fadeUp 0.6s ease forwards;
+        opacity: 0;
+      }
+
+      @keyframes fadeUp {
+        from {
+          transform: translateY(15px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* Button Glow Pulse */
+      .checkout-form button {
+        transition: all 0.3s ease;
+      }
+
+      .checkout-form button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(31, 60, 136, 0.35);
+      }
+
+      /* Smooth Input Focus */
+      .checkout-form input {
+        transition: all 0.3s ease;
+      }
+
+      .checkout-form input:focus {
+        transform: scale(1.02);
+      }
+
+      /* ===========================
+   RESPONSIVE
+=========================== */
+      /*      @media (max-width: 992px) {
+        .checkout-container {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          margin-top: 40px;
+          padding: 0 20px;
+        }
+
+        .card-row {
+          flex-direction: column;
+        }
+      } */
+
+      /* @media (max-width: 600px) {
+        header nav ul {
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+        }
+      } */
+
+      /* small phone size */
+
+      /* MOBILE MENU */
+      /* MOBILE MENU */
+      @media (max-width: 992px) {
+        .checkout-container {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          padding: 0 20px;
+        }
+
+        .card-row {
+          flex-direction: column;
+        }
+      }
+
+      /* // menu css small phone */
+      /* HAMBURGER MENU (HIDDEN ON DESKTOP) */
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        display: flex;
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .checkout-container {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          padding: 50px;
+        }
+        .order-summary .checkout-form {
+          width: 100%;
+        }
+        .card-row {
+          flex-direction: column;
+        }
+        .menu-toggle {
+          display: flex;
+          justify-content: right;
+          align-items: end;
+        }
+
+        nav {
+          position: absolute;
+          top: 70px;
+          right: 0;
+          width: 30%;
+          background: #0d47a1;
+          display: none;
+          flex-direction: column;
+        }
+
+        nav.active {
+          display: flex;
+        }
+
+        nav ul {
+          flex-direction: column;
+          text-align: right;
+          padding: 20px 0;
+        }
+        nav ul li {
+          /* width: 100%; */
+          padding-right: 0.5em;
+          margin: 2px, 0;
+        }
+
+        nav ul li a {
+          display: block;
+          padding: 10px 0;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- HEADER -->
     <header>
       <div class="logo">Night Fashion</div>
-      <nav>
+
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav id="nav-menu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
-
-          <li><a href="product.html">description</a></li>
+          <!-- <li>
+            <a href="checkout.html"> Cart (<span id="cart-count">0</span>) </a>
+          </li> -->
+          <li><a href="product.html">Description</a></li>
         </ul>
       </nav>
     </header>
@@ -68,21 +510,21 @@
         <p>Follow Us</p>
 
         <div class="social-links">
-          <a href="https://youtube.com" target="_blank"
+          <a href="https://www.youtube.com/@kenssd211" target="_blank"
             ><img
               src="/icon/youtube.png"
               style="width: 30px"
               style="height: auto"
               alt="Youtube"
           /></a>
-          <a href="https://instagram.com" target="_blank"
+          <a href="https://www.instagram.com/ken_ssd/" target="_blank"
             ><img
               src="/icon/instagram.png"
               style="width: 30px"
               style="height: auto"
               alt="instagram"
           /></a>
-          <a href="https://wa.me/211XXXXXXXXX" target="_blank"
+          <a href="https://wa.me/+211921808311" target="_blank"
             ><img
               src="/icon/whatsapp.png"
               style="width: 30px"
@@ -96,14 +538,16 @@
               style="height: auto"
               alt="Tiktok"
           /></a>
-          <a href="https://github-sign.com" target="_blank"
+          <a href="https://github.com/ken211-full" target="_blank"
             ><img
               src="/icon/github-sign.png"
               style="width: 30px"
               style="height: auto"
               alt="GitHub"
           /></a>
-          <a href="https://linkedin.com" target="_blank"
+          <a
+            href="https://www.linkedin.com/in/kenyi-john-samuel-52b688388/"
+            target="_blank"
             ><img
               src="/icon/linkedin.png"
               style="width: 30px"
@@ -180,6 +624,17 @@
           localStorage.removeItem("cart");
           window.location.href = "thankyou.html";
         });
+
+      // mall phone size
+
+      // MOBILE MENU TOGGLE (SAFE VERSION)
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("nav");
+
+      menuToggle.addEventListener("click", () => {
+        console.log("CLICKED");
+        nav.classList.toggle("active");
+      });
     </script>
   </body>
 </html>
