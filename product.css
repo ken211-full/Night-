@@ -283,7 +283,8 @@ footer {
       }
 
       .social-links a:hover {
-        text-decoration: underline;
+        transform: translateY(-5px);
+        color: rgb(53, 57, 61);
       }
 
 /* RESPONSIVE */

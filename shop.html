@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop - Night Fashion</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <link rel="shorhcut icon " href="/IMG-20260225-WA0014.jpg" />
   </head>
   <style>
@@ -197,7 +201,8 @@
     }
 
     .social-links a:hover {
-      text-decoration: underline;
+      transform: translateY(-5px);
+      color: rgb(53, 57, 61);
     }
 
     /* ========================
@@ -260,6 +265,11 @@
 
     /* MOBILE */
     @media (max-width: 768px) {
+      .add-to-cart {
+        display: block;
+        font-size: 8px;
+        text-align: center;
+      }
       .products,
       .product men,
       .product women {
@@ -272,12 +282,6 @@
       }
       .menu-toggle {
         display: flex;
-      }
-
-      .add-to-cart {
-        display: block;
-        font-size: 6px;
-        text-align: center;
       }
 
       nav {
@@ -353,33 +357,37 @@
       <div class="product men">
         <img src="shoes/WhatsApp Image 2026-03-11 at 9.46.36 PM.jpeg" alt="" />
         <h3>Men Sneakers</h3>
-        <p>$35</p>
-        <button class="add-to-cart" data-name="Men Sneakers" data-price="35">
+        <p>35, 000 SSP</p>
+        <button
+          class="add-to-cart"
+          data-name="Men Sneakers"
+          data-price="35, 000"
+        >
           Add to Cart
         </button>
       </div>
       <div class="product men">
         <img src="img shop/IMG-20260219-WA0016.jpg" />
         <h3>Men Sneakers</h3>
-        <p>$35</p>
-        <button class="add-to-cart" data-name="Men Sneakers" data-price="35">
+        <p>45, 000 SSP</p>
+        <button
+          class="add-to-cart"
+          data-name="Men Sneakers"
+          data-price="45, 000"
+        >
           Add to Cart
         </button>
       </div>
 
       <div class="product men">
         <img src="shoes/WhatsApp Image 2026-03-11 at 9.46.40 PM.jpeg" alt="" />
-        <h3>Men Hoodie</h3>
-        <p>$40</p>
-        <button class="add-to-cart" data-name="Men Hoodie" data-price="40">
-          Add to Cart
-        </button>
-      </div>
-      <div class="product men">
-        <img src="shoes/WhatsApp Image 2026-03-08 at 1.03.13 PM.jpeg" alt="" />
-        <h3>Men Hoodie</h3>
-        <p>$40</p>
-        <button class="add-to-cart" data-name="Men Hoodie" data-price="40">
+        <h3>Men Sneaker</h3>
+        <p>40, 000 SSP</p>
+        <button
+          class="add-to-cart"
+          data-name="Men Sneaker"
+          data-price="40, 000"
+        >
           Add to Cart
         </button>
       </div>
@@ -388,9 +396,9 @@
           src="men clothes/WhatsApp Image 2026-03-08 at 1.03.13 PM.jpeg"
           alt=""
         />
-        <h3>Men Hoodie</h3>
-        <p>$40</p>
-        <button class="add-to-cart" data-name="Men Hoodie" data-price="40">
+        <h3>Men Shoes</h3>
+        <p>140, 000 SSP</p>
+        <button class="add-to-cart" data-name="Men Shoes" data-price="140, 000">
           Add to Cart
         </button>
       </div>
@@ -575,9 +583,9 @@
           src="men clothes/WhatsApp Image 2026-03-08 at 1.05.27 PM.jpeg"
           alt=""
         />
-        <h3>Men Hoodie</h3>
-        <p>$40</p>
-        <button class="add-to-cart" data-name="Men Hoodie" data-price="40">
+        <h3>Men Shirt</h3>
+        <p>70, 000  SSP</p>
+        <button class="add-to-cart" data-name="Men Shirt" data-price="70, 000">
           Add to Cart
         </button>
       </div>
@@ -587,8 +595,8 @@
           alt=""
         />
         <h3>Men Hoodie</h3>
-        <p>$40</p>
-        <button class="add-to-cart" data-name="Men Hoodie" data-price="40">
+        <p>140, 000 SSP</p>
+        <button class="add-to-cart" data-name="Men Hoodie" data-price="140, 000">
           Add to Cart
         </button>
       </div>
@@ -597,9 +605,9 @@
           src="men clothes/WhatsApp Image 2026-03-08 at 1.05.29 PM (1).jpeg"
           alt=""
         />
-        <h3>Men Hoodie</h3>
-        <p>$40</p>
-        <button class="add-to-cart" data-name="Men Hoodie" data-price="40">
+        <h3>Women Suit</h3>
+        <p>140, 000</p>
+        <button class="add-to-cart" data-name="Women Suit" data-price="140, 000>
           Add to Cart
         </button>
       </div>
@@ -608,28 +616,40 @@
           src="men clothes/WhatsApp Image 2026-03-08 at 1.05.29 PM.jpeg"
           alt=""
         />
-        <h3>Men Hoodie</h3>
-        <p>$40</p>
-        <button class="add-to-cart" data-name="Men Hoodie" data-price="40">
+        <h3>Women Hoodie</h3>
+        <p>135, 000 SSP </p>
+        <button class="add-to-cart" data-name="Women Hoodie" data-price="135, 000 SSP ">
           Add to Cart
         </button>
       </div>
 
       <!-- WOMEN PRODUCTS -->
       <div class="product women">
-        <img src="https://via.placeholder.com/200" alt="" />
-        <h3>Women Heels</h3>
-        <p>$45</p>
-        <button class="add-to-cart" data-name="Women Heels" data-price="45">
+        <img src="IMG-20260219-WA0015.jpg" alt="" />
+        <h3>Sneakers</h3>
+        <p>45, 000 SSP </p>
+        <button class="add-to-cart" data-name="Sneaker" data-price="45, 000">
           Add to Cart
         </button>
       </div>
 
       <div class="product women">
         <img src="women-classic-beauty-style-60-s.jpg" alt="" />
-        <h3>Women Jacket</h3>
-        <p>$50</p>
-        <button class="add-to-cart" data-name="Women Jacket" data-price="50">
+        <h3>Women Shirt</h3>
+        <p>65, 000 SSP</p>
+        <button
+          class="add-to-cart"
+          data-name="Women Shirt"
+          data-price="65, 000"
+        >
+          Add to Cart
+        </button>
+      </div>
+      <div class="product women">
+        <img src="/img shop/IMG-20260219-WA0010.jpg" alt="" />
+        <h3>Sneaker</h3>
+        <p>60, 000 SSP</p>
+        <button class="add-to-cart" data-name="Sneaker" data-price="60, 000">
           Add to Cart
         </button>
       </div>
@@ -637,54 +657,36 @@
 
     <!-- FOOTER -->
     <footer>
-      <p>Follow Us</p>
-      <br />
-      <div class="social-links">
-        <a href="https://youtube.com" target="_blank"
-          ><img
-            src="/icon/youtube.png"
-            style="width: 30px"
-            style="height: auto"
-            alt="Youtube"
-        /></a>
-        <a href="https://instagram.com" target="_blank"
-          ><img
-            src="/icon/instagram.png"
-            style="width: 30px"
-            style="height: auto"
-            alt="instagram"
-        /></a>
-        <a href="https://wa.me/211XXXXXXXXX" target="_blank"
-          ><img
-            src="/icon/whatsapp.png"
-            style="width: 30px"
-            style="height: auto"
-            alt="WhatApp"
-        /></a>
-        <a href="https://tiktok.com" target="_blank"
-          ><img
-            src="/icon/tik-tok.png"
-            style="width: 30px"
-            style="height: auto"
-            alt="Tiktok"
-        /></a>
-        <a href="https://github-sign.com" target="_blank"
-          ><img
-            src="/icon/github-sign.png"
-            style="width: 30px"
-            style="height: auto"
-            alt="GitHub"
-        /></a>
-        <a href="https://linkedin.com" target="_blank"
-          ><img
-            src="/icon/linkedin.png"
-            style="width: 30px"
-            style="height: auto"
-            alt="Linkedin"
-        /></a>
+      <div class="footer-content">
+        <p>Follow Us</p>
+
+        <div class="social-links">
+          <a href="https://www.youtube.com/@kenssd211" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+
+          <a href="https://www.instagram.com/ken_ssd/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+
+          <a href="https://wa.me/+211921808311" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+
+          <a href="https://tiktok.com" target="_blank">
+            <i class="fab fa-tiktok"></i>
+          </a>
+
+          <a href="https://github.com/ken211-full" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+
+          <a href="https://linkedin.com" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        <p>© 2026 Night Fashion | All Rights Reserved</p>
       </div>
-      <br />
-      <p>© 2026 Night Fashion. All rights reserved.</p>
     </footer>
 
     <!-- JAVASCRIPT -->
