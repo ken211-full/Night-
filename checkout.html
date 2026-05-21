@@ -225,6 +225,7 @@
       /* footer */
       footer {
         background-color: #0d47a1;
+        width: 100%;
         color: white;
         text-align: center;
         padding: 30px;
@@ -361,24 +362,6 @@
         }
       } */
 
-      /* small phone size */
-
-      /* MOBILE MENU */
-      /* MOBILE MENU */
-      @media (max-width: 992px) {
-        .checkout-container {
-          grid-template-columns: 1fr;
-          gap: 40px;
-          padding: 20px;
-        }
-
-        .card-row {
-          flex-direction: column;
-        }
-      }
-
-      /* // menu css small phone */
-      /* HAMBURGER MENU (HIDDEN ON DESKTOP) */
       .menu-toggle {
         display: none;
         flex-direction: column;
@@ -393,32 +376,59 @@
         border-radius: 2px;
       }
 
-      @media (max-width: 768px) {
+      /* small phone size */
+
+      /* MOBILE MENU */
+      /* MOBILE MENU */
+      @media (max-width: 992px) {
         .checkout-container {
           grid-template-columns: 1fr;
-          gap: 40px;
+          gap: 30px;
           padding: 20px;
+          margin-top: 100px;
+        }
+
+        .card-row {
+          flex-direction: column;
         }
         .order-summary .checkout-form {
           width: 100%;
         }
-        .card-row {
-          flex-direction: column;
+      }
+
+      /* // menu css small phone */
+      /* HAMBURGER MENU (HIDDEN ON DESKTOP) */
+
+      /* ===========================
+   MOBILE RESPONSIVE DESIGN
+=========================== */
+      @media (max-width: 768px) {
+        /* HEADER */
+        header {
+          padding: 18px 20px;
         }
+
+        header .logo {
+          font-size: 18px;
+        }
+
+        /* HAMBURGER */
         .menu-toggle {
           display: flex;
           justify-content: right;
           align-items: end;
         }
 
+        /* MOBILE NAVIGATION */
         nav {
           position: absolute;
           top: 70px;
           right: 0;
-          width: 50%;
+          width: 45%;
           background: #0d47a1;
           display: none;
           flex-direction: column;
+          padding: 3px;
         }
 
         nav.active {
@@ -430,15 +440,82 @@
           text-align: right;
           padding: 20px 0;
         }
-        nav ul li {
-          /* width: 100%; */
-          padding-right: 0.5em;
-          margin: 2px, 0;
-        }
 
         nav ul li a {
-          display: block;
-          padding: 10px 0;
+          padding: 8px;
+        }
+
+        /* CHECKOUT CONTAINER */
+        .checkout-container {
+          grid-template-columns: 1fr;
+          gap: 25px;
+          padding: 15px;
+          margin-top: 100px;
+        }
+
+        /* CARD SECTIONS */
+        .order-summary,
+        .checkout-form {
+          width: 100%;
+          padding: 25px 20px;
+          border-radius: 16px;
+        }
+
+        /* INPUTS */
+        .checkout-form input,
+        .discount input {
+          width: 100%;
+          font-size: 15px;
+        }
+
+        /* CARD ROW */
+        .card-row {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        /* BUTTONS */
+        .checkout-form button,
+        .discount button {
+          width: 100%;
+        }
+
+        .discount {
+          flex-direction: column;
+        }
+
+        /* FOOTER FIX */
+        footer {
+          width: 100%;
+          padding: 25px 15px;
+          overflow: hidden;
+        }
+
+        .footer-content {
+          width: 100%;
+          align-items: center;
+          justify-content: center;
+          gap: 18px;
+        }
+
+        .social-links {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 18px;
+          width: 100%;
+        }
+
+        .social-links a {
+          margin: 0;
+          font-size: 22px;
+        }
+
+        footer p {
+          font-size: 14px;
+          line-height: 1.5;
+          text-align: center;
         }
       }
     </style>
@@ -461,7 +538,7 @@
           <!-- <li>
             <a href="checkout.html"> Cart (<span id="cart-count">0</span>) </a>
           </li> -->
-          <li><a href="product.html">Description</a></li>
+          <li><a href="product.html">Sneakers</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
