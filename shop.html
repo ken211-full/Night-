@@ -177,6 +177,85 @@
       background: #020e42;
     }
 
+ .modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.6);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal-content{
+    background:#fff;
+    width:350px;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    position:relative;
+}
+
+.modal-content img{
+    width:100%;
+    border-radius:10px;
+}
+
+.close-btn{
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+#modalCartBtn{
+
+    margin-top:20px;
+
+    padding:12px 30px;
+
+    border:none;
+
+    background:#0d47a1;
+
+    color:white;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+}
+
+#modalCartBtn:hover{
+
+    background:#062f73;
+
+}
+
+@keyframes zoom{
+
+from{
+
+transform:scale(.7);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
     /* ========================
        FOOTER
     ======================== */
@@ -362,7 +441,7 @@
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="product.html">Dresss</a></li>
+          <li><a href="product.html">Sneakers</a></li>
           <li>
             <a href="checkout.html"> Cart (<span id="cart-count">0</span>) </a>
           </li>
@@ -388,19 +467,41 @@
     <section class="products" id="product-list">
       <!-- MEN PRODUCTS -->
       <div class="product men">
-        <img src="shoes/WhatsApp Image 2026-03-11 at 9.46.36 PM.jpeg" alt="" />
+<img
+src="shoes/WhatsApp Image 2026-03-11 at 9.46.33 PM.jpeg"
+alt="Men Sneakers"
+onclick="showProduct(
+this.src,
+'Men Sneakers',
+'35000 SSP',
+'Comfortable sneakers suitable for everyday wear.'
+)"
+>
         <h3>Men Dresss</h3>
         <p>35, 000 SSP</p>
         <button
           class="add-to-cart"
           data-name="Men Dresss"
-          data-price="35, 000"
+          data-price="35000"
         >
           Add to Cart
         </button>
+        
       </div>
+      
+    
+
       <div class="product men">
-        <img src="img shop/IMG-20260219-WA0016.jpg" />
+ <img
+src="shoes/WhatsApp Image 2026-03-11 at 9.46.36 PM (1).jpeg"
+alt="Men Sneakers"
+onclick="showProduct(
+this.src,
+'Men Sneakers',
+'45,000 SSP',
+'best sneakers in the maerket.'
+)"
+>
         <h3>Men Dresss</h3>
         <p>45, 000 SSP</p>
         <button
@@ -413,7 +514,16 @@
       </div>
 
       <div class="product men">
-        <img src="shoes/WhatsApp Image 2026-03-11 at 9.46.40 PM.jpeg" alt="" />
+        <img
+src="shoes/WhatsApp Image 2026-03-11 at 9.46.32 PM.jpeg"
+alt="Men Sneakers"
+onclick="showProduct(
+this.src,
+'Men Sneakers',
+'40,000 SSP',
+'Comfortable sneakers suitable for everyday wear.'
+)"
+>
         <h3>Men Dress</h3>
         <p>40, 000 SSP</p>
         <button
@@ -427,8 +537,14 @@
       <div class="product men">
         <img
           src="men clothes/WhatsApp Image 2026-03-08 at 1.03.13 PM.jpeg"
-          alt=""
-        />
+        alt="Men Sneakers"
+onclick="showProduct(
+this.src,
+'Men Sneakers',
+'140,000 SSP',
+'Comfortable sneakers suitable for everyday wear.'
+)"
+>
         <h3>Men Shoes</h3>
         <p>140, 000 SSP</p>
         <button class="add-to-cart" data-name="Men Shoes" data-price="140, 000">
@@ -445,7 +561,7 @@
         <button
           class="add-to-cart"
           data-name="Men Hoodie"
-          data-price="130, 000"
+          data-price="130000"
         >
           Add to Cart
         </button>
@@ -460,7 +576,7 @@
         <button
           class="add-to-cart"
           data-name="Men Hoodie"
-          data-price="130, 000"
+          data-price="135000"
         >
           Add to Cart
         </button>
@@ -475,7 +591,7 @@
         <button
           class="add-to-cart"
           data-name="Men Hoodie"
-          data-price="140, 000"
+          data-price="140000"
         >
           Add to Cart
         </button>
@@ -490,7 +606,7 @@
         <button
           class="add-to-cart"
           data-name="Black Shoes"
-          data-price="170, 000"
+          data-price="170000"
         >
           Add to Cart
         </button>
@@ -501,11 +617,11 @@
           alt=""
         />
         <h3>Original Shoes</h3>
-        <p>155, 000 SSP</p>
+        <p>155000 SSP</p>
         <button
           class="add-to-cart"
           data-name="Original Shoes"
-          data-price="140, 000"
+          data-price="140000"
         >
           Add to Cart
         </button>
@@ -516,11 +632,11 @@
           alt=""
         />
         <h3>Original Shoes</h3>
-        <p>155, 000 SSP</p>
+        <p>155000 SSP</p>
         <button
           class="add-to-cart"
           data-name="Original Shoes"
-          data-price="155, 000 "
+          data-price="155000 "
         >
           Add to Cart
         </button>
@@ -531,8 +647,8 @@
           alt=""
         />
         <h3>Men Suit</h3>
-        <p>240, 000 SSP</p>
-        <button class="add-to-cart" data-name="Men Suit" data-price="240, 000">
+        <p>240000 SSP</p>
+        <button class="add-to-cart" data-name="Men Suit" data-price="240000">
           Add to Cart
         </button>
       </div>
@@ -542,8 +658,8 @@
           alt=""
         />
         <h3>Suit</h3>
-        <p>190, 000 SSP</p>
-        <button class="add-to-cart" data-name="Suit" data-price="190, 000">
+        <p>190000 SSP</p>
+        <button class="add-to-cart" data-name="Suit" data-price="190000">
           Add to Cart
         </button>
       </div>
@@ -553,8 +669,8 @@
           alt=""
         />
         <h3>Suit</h3>
-        <p>190, 000 SSP</p>
-        <button class="add-to-cart" data-name="Suit" data-price="190, 000">
+        <p>190000 SSP</p>
+        <button class="add-to-cart" data-name="Suit" data-price="190000">
           Add to Cart
         </button>
       </div>
@@ -564,8 +680,8 @@
           alt=""
         />
         <h3>Men Suits</h3>
-        <p>160, 000 SSP</p>
-        <button class="add-to-cart" data-name="Men Suits" data-price="160, 000">
+        <p>160000 SSP</p>
+        <button class="add-to-cart" data-name="Men Suits" data-price="160000">
           Add to Cart
         </button>
       </div>
@@ -575,8 +691,8 @@
           alt=""
         />
         <h3>Suit</h3>
-        <p>160, 000 SSP</p>
-        <button class="add-to-cart" data-name="Suit" data-price="160, 000">
+        <p>160000 SSP</p>
+        <button class="add-to-cart" data-name="Suit" data-price="160000">
           Add to Cart
         </button>
       </div>
@@ -586,11 +702,11 @@
           alt=""
         />
         <h3>Sport shirt</h3>
-        <p>40, 000 SSP</p>
+        <p>40000 SSP</p>
         <button
           class="add-to-cart"
           data-name="Sport shirt"
-          data-price="40, 000"
+          data-price="40000"
         >
           Add to Cart
         </button>
@@ -601,11 +717,11 @@
           alt=""
         />
         <h3>Sport shirt</h3>
-        <p>40, 000 SSP</p>
+        <p>40000 SSP</p>
         <button
           class="add-to-cart"
           data-name="Sport shirt"
-          data-price="40, 000"
+          data-price="40000"
         >
           Add to Cart
         </button>
@@ -616,8 +732,8 @@
           alt=""
         />
         <h3>Men Suit</h3>
-        <p>150, 000 SSP</p>
-        <button class="add-to-cart" data-name="Men Suit" data-price="150, 000">
+        <p>150000 SSP</p>
+        <button class="add-to-cart" data-name="Men Suit" data-price="150000">
           Add to Cart
         </button>
       </div>
@@ -627,8 +743,8 @@
           alt=""
         />
         <h3>Shirt</h3>
-        <p>65,000 SSP</p>
-        <button class="add-to-cart" data-name="Shirt" data-price="65, 000">
+        <p>6500 SSP</p>
+        <button class="add-to-cart" data-name="Shirt" data-price="65000">
           Add to Cart
         </button>
       </div>
@@ -638,8 +754,8 @@
           alt=""
         />
         <h3>Lakes</h3>
-        <p>55, 000 SSP</p>
-        <button class="add-to-cart" data-name="Lakes" data-price="55, 000">
+        <p>55000 SSP</p>
+        <button class="add-to-cart" data-name="Lakes" data-price="55000">
           Add to Cart
         </button>
       </div>
@@ -649,8 +765,8 @@
           alt=""
         />
         <h3>Men Shirt</h3>
-        <p>70, 000 SSP</p>
-        <button class="add-to-cart" data-name="Men Shirt" data-price="70, 000">
+        <p>70 000 SSP</p>
+        <button class="add-to-cart" data-name="Men Shirt" data-price="70000">
           Add to Cart
         </button>
       </div>
@@ -660,11 +776,11 @@
           alt=""
         />
         <h3>Men Hoodie</h3>
-        <p>140, 000 SSP</p>
+        <p>140000 SSP</p>
         <button
           class="add-to-cart"
           data-name="Men Hoodie"
-          data-price="140, 000"
+          data-price="140000"
         >
           Add to Cart
         </button>
@@ -674,8 +790,8 @@
       <div class="product women">
         <img src="IMG-20260219-WA0015.jpg" alt="" />
         <h3>Sneaker</h3>
-        <p>45, 000 SSP</p>
-        <button class="add-to-cart" data-name="Sneaker" data-price="45, 000">
+        <p>45000 SSP</p>
+        <button class="add-to-cart" data-name="Sneaker" data-price="45000">
           Add to Cart
         </button>
       </div>
@@ -683,11 +799,11 @@
       <div class="product women">
         <img src="women-classic-beauty-style-60-s.jpg" alt="" />
         <h3>Women Shirt</h3>
-        <p>65, 000 SSP</p>
+        <p>65000 SSP</p>
         <button
           class="add-to-cart"
           data-name="Women Shirt"
-          data-price="65, 000"
+          data-price="65000"
         >
           Add to Cart
         </button>
@@ -695,136 +811,136 @@
       <!-- <div class="product women">
         <img src="/img shop/IMG-20260219-WA0010.jpg" alt="" />
         <h3>Sneaker</h3>
-        <p>60, 000 SSP</p>
-        <button class="add-to-cart" data-name="Sneaker" data-price="60, 000">
+        <p>60000 SSP</p>
+        <button class="add-to-cart" data-name="Sneaker" data-price="60000">
           Add to Cart
         </button>
       </div> -->
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.35.50 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>180, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="180, 000">
+        <p>180000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="180000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.35.51 PM (1).jpeg" alt="" />
         <h3>Dress</h3>
-        <p>180, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="180, 000">
+        <p>180000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="180000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.35.51 PM (2).jpeg" alt="" />
         <h3>Dress</h3>
-        <p>180, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="180, 000">
+        <p>180000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="180000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.35.51 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>180, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="180, 000">
+        <p>180000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="180000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.35.52 PM (1).jpeg" alt="" />
         <h3>Dress</h3>
-        <p>180, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="180, 000">
+        <p>180000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="180000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.35.52 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>180, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="180, 000">
+        <p>180000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="180000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.35.54 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>135, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="135, 000">
+        <p>135000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="135000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.35.55 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>160, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="160, 000">
+        <p>160000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="160000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.35.55 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>160, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="160, 000">
+        <p>160000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="160000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.35.56 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>160, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="160, 000">
+        <p>160000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="160000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.35.57 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>160, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="160, 000">
+        <p>160000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="160000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.01 PM (2).jpeg" alt="" />
         <h3>Dress</h3>
-        <p>160, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="160, 000">
+        <p>160000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="160000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.01 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>160, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="160, 000">
+        <p>160000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="160000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.02 PM (1).jpeg" alt="" />
         <h3>Dress</h3>
-        <p>155, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="155, 000">
+        <p>155000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="155000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.02 PM (2).jpeg" alt="" />
         <h3>Dress</h3>
-        <p>155, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="155, 000">
+        <p>155000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="155000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.02 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>155, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="155, 000">
+        <p>155000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="155000">
           Add to Cart
         </button>
       </div>
@@ -832,76 +948,100 @@
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.05 PM (1).jpeg" alt="" />
         <h3>Dress</h3>
-        <p>210, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="210, 000">
+        <p>210000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="210000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.08 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>210, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="210, 000">
+        <p>210000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="210000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.10 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>210, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="210, 000">
+        <p>210000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="210000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.10 PM (2).jpeg" alt="" />
         <h3>Dress</h3>
-        <p>210, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="210, 000">
+        <p>210000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="210000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.10 PM (1).jpeg" alt="" />
         <h3>Dress</h3>
-        <p>210, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="210, 000">
+        <p>210000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="210000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.09 PM.jpeg" alt="" />
         <h3>Dress</h3>
-        <p>210, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="210, 000">
+        <p>210000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="210000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.09 PM (3).jpeg" alt="" />
         <h3>Dress</h3>
-        <p>210, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="210, 000">
+        <p>210000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="210000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.09 PM (2).jpeg" alt="" />
         <h3>Dress</h3>
-        <p>210, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="210, 000">
+        <p>210000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="210000">
           Add to Cart
         </button>
       </div>
       <div class="product women">
         <img src="/Women clothes/WhatsApp Image 2026-05-25 at 1.36.09 PM (1).jpeg" alt="" />
         <h3>Dress</h3>
-        <p>160, 000 SSP</p>
-        <button class="add-to-cart" data-name="Dress" data-price="160, 000">
+        <p>160000 SSP</p>
+        <button class="add-to-cart" data-name="Dress" data-price="160000">
           Add to Cart
         </button>
       </div>
     </section>
+
+    //products detail form
+    <div id="productModal" class="modal">
+
+  <div class="modal-content">
+  
+    <span class="close-btn" onclick="closeProduct()">&times;</span>
+
+    <img id="modalImage">
+
+    <h2 id="modalTitle"></h2>
+
+    <h3 id="modalPrice"></h3>
+
+    <p id="modalDescription"></p>
+
+    <button id="modalCartBtn">
+      Add to Cart
+    </button>
+
+  </div>
+
+</div>
+
 
     <!-- FOOTER -->
     <footer>
@@ -1000,6 +1140,63 @@
       menuToggle.addEventListener("click", () => {
         nav.classList.toggle("active");
       });
+
+function showProduct(image, title, price, description) {
+
+    document.getElementById("modalImage").src = image;
+
+    document.getElementById("modalTitle").innerHTML = title;
+
+    document.getElementById("modalPrice").innerHTML = price;
+
+    document.getElementById("modalDescription").innerHTML = description;
+     // Save product data on the Add to Cart button
+    const cartBtn = document.getElementById("modalCartBtn");
+
+    cartBtn.setAttribute("data-name", title);
+    cartBtn.setAttribute("data-price", price.replace(" SSP", "").replace(",", ""));
+
+    document.getElementById("productModal").style.display = "flex";
+
+}
+function closeProduct(){
+
+    document.getElementById("productModal").style.display = "none";
+
+}
+
+window.onclick=function(event){
+
+    const modal=document.getElementById("productModal");
+
+    if(event.target==modal){
+
+        modal.style.display="none";
+
+    }
+
+
+  }
+  document.getElementById("modalCartBtn").addEventListener("click", function () {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const product = {
+        name: this.dataset.name,
+        price: this.dataset.price
+    };
+
+    cart.push(product);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Update cart count
+    document.getElementById("cart-count").textContent = cart.length;
+
+    alert(product.name + " added to cart!");
+
+    closeProduct();
+});
     </script>
   </body>
 </html>

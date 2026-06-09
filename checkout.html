@@ -636,7 +636,7 @@
 
         div.innerHTML = `
         <p>${item.name}</p>
-        <p>$${item.price}</p>
+        <p>SSP${item.price}</p>
         <button class="remove-item" data-index="${index}">✕</button>
     `;
 
@@ -655,7 +655,8 @@
       });
 
       // Total
-      checkoutTotal.textContent = total.toFixed(2);
+      checkoutTotal.textContent =
+    Number(total).toLocaleString() + " SSP";
 
       // Promo code
       document.getElementById("apply-code").addEventListener("click", () => {
@@ -665,7 +666,8 @@
           .toUpperCase();
         if (code === "NIGHT10") {
           total = total * 0.9;
-          checkoutTotal.textContent = total.toFixed(2);
+          checkoutTotal.textContent =
+    "SSP " + Number(total).toLocaleString();
           alert("Promo applied! 10% discount 🔥");
         } else {
           alert("Invalid promo code");
